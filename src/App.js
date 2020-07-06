@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
+
 import {connect} from "react-redux";
 import {setBooks} from "./actions/books";
+import {CardGroup, Container} from "semantic-ui-react";
 import axios from 'axios'
+import MenuComponent from "./components/MenuComponent";
+import BookCard from "./components/BookCard";
 
 
-class App extends Component{
+class App extends Component {
 
     componentDidMount() {
         const {setBooks} = this.props
@@ -14,21 +18,25 @@ class App extends Component{
     }
 
     render() {
-      const {books} = this.props
-    return(
-        <ul>
-            { !books ? 'Загрузка...' : books.map(book => (
-                <li key={book.id}><b>{book.title}</b> - {book.author}</li>
-            ))}
-        </ul>
-    )
-  }
-}
-
-const mapStateToProps = (state) => {
-    return{
-        books: state.booksReducer.items
+        const {books, isReady} = this.props
+        return (
+            <Container>
+                <MenuComponent/>
+                <CardGroup itemsPerRow={4}>
+                    {!isReady ? 'Загрузка...' : books.map((book,i) => (
+                        <BookCard key={i} {...book}/>
+                    ))}
+                </CardGroup>
+            </Container>
+        )
     }
 }
 
-export default connect(mapStateToProps,{setBooks})(App);
+const mapStateToProps = (state) => {
+    return {
+        books: state.booksReducer.items,
+        isReady: state.booksReducer.isReady
+    }
+}
+
+export default connect(mapStateToProps, {setBooks})(App);
