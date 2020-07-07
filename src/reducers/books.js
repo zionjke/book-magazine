@@ -1,8 +1,10 @@
-import {SET_BOOKS, SET_IS_READY} from "../actions/books";
+import {SET_BOOKS, SET_FILTER, SET_IS_READY, setBooks} from "../actions/books";
+import axios from "axios";
 
 const initialState = {
     isReady: false,
-    items: null
+    items: null,
+    filterBy: 'all'
 }
 
 const booksReducer = (state= initialState,action) => {
@@ -18,8 +20,19 @@ const booksReducer = (state= initialState,action) => {
                  ...state,
                  isReady: action.payload
              }
+         case SET_FILTER:
+             return {
+                 ...state,
+                 filterBy: action.filter
+             }
      }
     return state
+}
+
+export const getBooks = () => (dispatch) => {
+    axios.get('/books.json').then(({data}) => {
+        dispatch(setBooks(data))
+    })
 }
 
 export default booksReducer
