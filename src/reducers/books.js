@@ -4,7 +4,6 @@ import axios from "axios";
 const initialState = {
     isReady: false,
     items: null,
-    filterBy: 'all'
 }
 
 const booksReducer = (state= initialState,action) => {
@@ -20,11 +19,7 @@ const booksReducer = (state= initialState,action) => {
                  ...state,
                  isReady: action.payload
              }
-         case SET_FILTER:
-             return {
-                 ...state,
-                 filterBy: action.filter
-             }
+
      }
     return state
 }

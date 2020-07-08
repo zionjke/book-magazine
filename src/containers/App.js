@@ -1,10 +1,10 @@
 import {connect} from "react-redux";
 import App from "../components/App";
 import {getBooks} from "../reducers/books";
-import {setFilter} from "../actions/books";
+import {setFilter} from "../actions/filter";
 import orderBy from 'lodash/orderBy';
 
-const sortBy = (books,filterBy) => {
+const sortBy = (books,filterBy,searchQuery) => {
     switch (filterBy) {
         case 'all':
             return books;
@@ -21,11 +21,10 @@ const sortBy = (books,filterBy) => {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({books,filter}) => {
     return {
-        books: sortBy(state.books.items,state.books.filterBy),
-        // books: state.books.items,
-        isReady: state.books.isReady
+        books: sortBy(books.items,filter.filterBy,filter.searchQuery),
+        isReady: books.isReady
     }
 }
 

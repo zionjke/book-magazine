@@ -1,11 +1,12 @@
 import Filter from '../components/Filter'
 import {connect} from "react-redux";
-import {setFilter} from "../actions/books";
+import {setFilter, setSearchQuery} from "../actions/filter";
 
 const mapStateToProps = (state) => {
     return {
-        filterBy: state.books.filterBy
+        filterBy: state.filter.filterBy,
+        searchQuery:state.filter.searchQuery
     }
 }
 
-export default connect(mapStateToProps,{setFilter})(Filter)
+export default connect(mapStateToProps,{setFilter,setSearchQuery})(Filter)
