@@ -4,7 +4,7 @@ import {SET_FILTER, SET_QUERY} from "../actions/filter";
 const initialState = {
     searchQuery:'',
     filterBy: 'all'
-}
+};
 
 const filterReducer = (state=initialState,action) => {
     switch (action.type) {
@@ -12,7 +12,7 @@ const filterReducer = (state=initialState,action) => {
             return {
                 ...state,
                 filterBy: action.filter
-            }
+            };
         case SET_QUERY:
             return {
                 ...state,
@@ -20,6 +20,6 @@ const filterReducer = (state=initialState,action) => {
             }
     }
     return state
-}
+};
 
 export default filterReducer

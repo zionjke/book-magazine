@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {CardGroup, Container} from "semantic-ui-react";
-import MenuComponent from "./MenuComponent";
-import BookCard from "./BookCard";
+import Menu from "../containers/Menu";
+import BookCard from "../containers/BookCard";
 import Filter from "./../containers/Filter";
 
 class App extends Component {
@@ -11,10 +11,10 @@ class App extends Component {
     }
 
     render() {
-        const {books, isReady} = this.props
+        const {books, isReady} = this.props;
         return (
             <Container>
-                <MenuComponent/>
+                <Menu/>
                 <Filter/>
                 <CardGroup itemsPerRow={4}>
                     {!isReady ? 'Загрузка...' : books.map((book,i) => (

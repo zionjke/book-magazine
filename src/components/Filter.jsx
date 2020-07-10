@@ -43,6 +43,6 @@ const Filter = ({setFilter, filterBy,searchQuery,setSearchQuery}) => {
             </Menu.Item>
         </Menu>
     )
-}
+};
 
 export default Filter
