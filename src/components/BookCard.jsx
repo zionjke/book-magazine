@@ -2,7 +2,7 @@ import React from "react";
 import {Card, Icon, Image,Button} from 'semantic-ui-react'
 
 const BookCard = (book) => {
-    const {title,author,price, image,addBookToCart} = book;
+    const {title,author,price, image,addBookToCart,addedCount} = book;
     return (
         <Card>
             <Image src={image} wrapped ui={false} />
@@ -19,7 +19,7 @@ const BookCard = (book) => {
                 </a>
             </Card.Content>
             <Button onClick={addBookToCart.bind(this,book)}>
-                Добавить в корзину
+                Добавить в корзину {addedCount > 0 && `(${addedCount})`}
             </Button>
         </Card>
     )

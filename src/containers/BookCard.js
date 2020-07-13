@@ -1,12 +1,14 @@
 import BookCard from '../components/BookCard'
 import {connect} from "react-redux";
-import {addBookToCart} from "../actions/cart";
+import {addBookToCart, removeBookFromCart} from "../actions/cart";
 
 
-const mapStateToProps = ({cart}) => {
+const mapStateToProps = ({cart},{id}) => {
     return {
-        addedCount:0
+        addedCount:cart.items.reduce(
+            (count,book) => count + (book.id === id ? 1 : 0),
+            0)
     }
 };
 
-export default connect(mapStateToProps,{addBookToCart})(BookCard)
+export default connect(mapStateToProps,{addBookToCart,removeBookFromCart})(BookCard)
