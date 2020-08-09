@@ -25,7 +25,7 @@ const booksReducer = (state= initialState,action) => {
 }
 
 export const getBooks = () => (dispatch) => {
-    axios.get('/books.json').then(({data}) => {
+    axios.get('https://books-magazine.herokuapp.com/books').then(({data}) => {
         dispatch(setBooks(data))
     })
 }
