@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4ace95c54775bbfdc4972e432b0a8822",
+    "revision": "8fec4e24f99e1b08456f8936c107177e",
     "url": "/book-magazine/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/book-magazine/static/css/2.0d6ca41b.chunk.css"
   },
   {
-    "revision": "8f7cfb2fbe01ee3e92e6",
+    "revision": "9dfd4ce1ec58b5842d15",
     "url": "/book-magazine/static/css/main.5b57bd65.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/book-magazine/static/js/2.bb95f211.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8f7cfb2fbe01ee3e92e6",
-    "url": "/book-magazine/static/js/main.347b0161.chunk.js"
+    "revision": "9dfd4ce1ec58b5842d15",
+    "url": "/book-magazine/static/js/main.de06178b.chunk.js"
   },
   {
     "revision": "5769ab305b6d5fc4aa0c",
